@@ -18,7 +18,8 @@ const courseSchema = new mongoose.Schema({
         type: Array
     },
     ta_name:{
-        type : String
+        type : String,
+        default: ""
     },
     ta_selected:{
         type:Boolean,

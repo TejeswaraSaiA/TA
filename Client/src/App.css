@@ -48,12 +48,12 @@ button {
 .cancel-button{
   width: 150px;
   height: fit-content;
-  border: 1px solid #524d4c !important;
+  border: 1px solid red !important;
   border-radius: 5px !important;
   background:none !important;
   padding: 10px !important;
   align-self: center !important;
-  color: #000000 !important;
+  color: #ff0000 !important;
 }
 .cancel-button:hover {
   color: white;
@@ -104,7 +104,7 @@ button {
 .layout-left-container{
   height:100%;
   display: flex;
-  background-color: #49cdab;
+  background-color: #3939cb;
   flex: 0 0 40%;
 }
 
@@ -136,7 +136,7 @@ button {
 }
 .top-header{
   display:flex;
-  background-color: #519696;
+  background-color: #516296;
   padding:20px 30px;
   position:fixed;
   top:0;

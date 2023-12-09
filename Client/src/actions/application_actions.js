@@ -6,7 +6,7 @@ export const createApplication = (application) => async(dispatch) => {
     });
 
     try {
-        const response = await axios.post("/api/applications/new_application", application);
+        const response = await axios.post("/api/applications/new_application", application,{headers:{'Content-Type':'multipart/form-data'}});
         // const response2 = await axios.get('/api/books/allBook');
 
         dispatch({
@@ -21,13 +21,13 @@ export const createApplication = (application) => async(dispatch) => {
     }
 };
 
-export const updateApplication = (user) => async(dispatch) => {
+export const updateApplication = (user,comm) => async(dispatch) => {
     dispatch({
         type: "APPLICATION_REQUEST",
     });
 
     try {
-        const response = await axios.post("/api/applications/applicant_update",user);
+        const response = await axios.post("/api/applications/applicant_update",user,{params:{comm:comm ? true : false}});
         // const response2 = await axios.get('/api/books/allBook');
 
         dispatch({

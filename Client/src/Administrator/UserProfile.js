@@ -10,7 +10,7 @@ const UserProfile = (props) => {
     major: '',
     gpa: '',
     hasExperience: false,
-    experiences: [{ courseName: '', professorName: '', dept: '' }],
+    experiences: [{ course_name: '', professor_name: '', department: '' }],
   });
 
   useEffect(() => {
@@ -33,7 +33,7 @@ const UserProfile = (props) => {
   };
 
   const { name, email, mobile, major, gpa, hasExperience, experiences } = state;
-
+  console.log("vieewed User",props.viewedUser)
   return (
     <Modal open={props.isOpend} className="right-aligned-modal">
       <Modal.Header style={{display:'flex'}}>
@@ -54,105 +54,51 @@ const UserProfile = (props) => {
                   control={Input}
                   label="Name"
                   name="name"
-                  value={name}
-                  disabled
+                  value={props.viewedUser.applicant_name}
+                  readOnly
                 />
               </Grid.Column>
               <Grid.Column>
                 <Form.Field
                   control={Input}
-                  label="Email"
-                  name="email"
-                  value={email}
-                  disabled
+                  label="Course Name"
+                  name="course_name"
+                  value={props.viewedUser.course_name}
+                  readOnly
                 />
               </Grid.Column>
-              <Grid.Column>
-                <Form.Field
-                  control={Input}
-                  label="Mobile Number"
-                  name="mobile"
-                  value={mobile}
-                  disabled
-                />
-              </Grid.Column>
+              
             </Grid.Row>
 
             <Grid.Row>
-              <Grid.Column>
-                <Form.Field
-                  control={Input}
-                  label="Major"
-                  name="major"
-                  value={major}
-                  disabled
-                />
-              </Grid.Column>
-              <Grid.Column>
-                <Form.Field
-                  control={Input}
-                  label="GPA"
-                  name="gpa"
-                  value={gpa}
-                  disabled
-                />
-              </Grid.Column>
               {/* <Grid.Column>
                 <Form.Field
                   control={Input}
-                  type="file"
-                  label="Upload Resume"
-                  onChange={handleFileUpload}
+                  label="Gpa"
+                  name="Gpa"
+                  value={major}
+                  disabled
                 />
               </Grid.Column> */}
-            </Grid.Row>
-
-            <Grid.Row>
               <Grid.Column>
                 <Form.Field
-                  control={Checkbox}
-                  label="Previous Experience?"
-                  checked={hasExperience}
-                  disabled
+                  control={Input}
+                  label="Gpa"
+                  name="gpa"
+                  value={props.viewedUser.gpa}
+                  readOnly
+                />
+              </Grid.Column>
+              <Grid.Column>
+                <Form.Field
+                  control={Button}
+                  type="file"
+                  label="viewResume"
+                  onClick={()=>{window.open(`http://localhost:4000/files/${props.viewedUser.resume}`, "_blank", "noreferrer")}}
+                  readOnly
                 />
               </Grid.Column>
             </Grid.Row>
-
-            {hasExperience &&
-              experiences.map((exp, index) => (
-                <>
-                <p style={{margin:0,fontWeight:'bold'}}>Experience {index}</p>
-                <Grid.Row key={index}>
-                  <Grid.Column>
-                    <Form.Field
-                      control={Input}
-                      label={`Course Name`}
-                      name={`courseName-${index}`}
-                      value={exp.courseName}
-                      disabled
-                    />
-                  </Grid.Column>
-                  <Grid.Column>
-                    <Form.Field
-                      control={Input}
-                      label={`Professor Name`}
-                      name={`professorName-${index}`}
-                      value={exp.professorName}
-                      disabled
-                    />
-                  </Grid.Column>
-                  <Grid.Column>
-                    <Form.Field
-                      control={Input}
-                      label={`Department`}
-                      name={`dept-${index}`}
-                      value={exp.dept}
-                      disabled
-                    />
-                  </Grid.Column>
-                </Grid.Row>
-                </>
-              ))}
           </Grid>
         </Form>
       </Modal.Content>

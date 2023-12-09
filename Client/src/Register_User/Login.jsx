@@ -62,7 +62,7 @@ const Login=()=>{
                 
                 <Dropdown options={users} value={userType} placeholder={"select user"} selection onChange={(e,data)=>setUserType(data.value)}/>
                 <Input value={email} placeholder='Enter ID/Email' className='input_button_styles' onChange={(e)=>setEmail(e.target.value)}/>
-                <Input  value={password} placeholder='Enter Password' className='input_button_styles' onChange={(e)=>setPassword(e.target.value)}/>
+                <Input type='password' value={password} placeholder='Enter Password' className='input_button_styles' onChange={(e)=>setPassword(e.target.value)}/>
                 <Button type='submit' className='red_button' onClick={LognHandler}>Submit</Button>
                 </div>
             </div>

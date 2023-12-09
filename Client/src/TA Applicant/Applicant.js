@@ -54,7 +54,8 @@ const Applicant = (props) => {
                     <Grid.Row columns={3} style={{padding:0}}>
                   
                         {courses.map((val, idx) => {
-                            return <Grid.Column style={{padding:0,paddingLeft:30,marginBottom:30}}>
+                            if(!val.ta_selected){
+                                return <Grid.Column style={{padding:0,paddingLeft:30,marginBottom:30}} key={idx}>
                                 <Card style={{width:'100%'}}>
                                     <Card.Content header={val.course_name} />
                                     <Card.Content  >
@@ -77,12 +78,14 @@ const Applicant = (props) => {
                                 </Card>
                                 
                             </Grid.Column>
+                            }
+                            
                         })}
                     </Grid.Row>
                 </Grid>
 
             </div>:
-            <Dashboard applicant_id={applicant_id} />}
+            <Dashboard applicant_id={applicant_id} course={courses}/>}
             
         </div>
     )

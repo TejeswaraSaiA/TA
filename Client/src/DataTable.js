@@ -5,7 +5,7 @@ import { useTable, usePagination } from 'react-table';
 //mport './DataTable.css'; // Import a separate CSS file for styles
 import { CiSquareChevLeft,CiSquareChevRight } from "react-icons/ci";
 const DataTable = ({ columns, data }) => {
-  const pageSize = data && data.length > 3 ? 3 : data.length;
+  const pageSize = data && data.length > 3 ? 3 : 1;
 
   const {
     getTableProps,

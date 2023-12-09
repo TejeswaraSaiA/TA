@@ -1,22 +1,32 @@
+
 const express = require("express");
 const router = express.Router();
 const mongoose = require("mongoose");
 const Application = require('../modal/applicationModal')
 const Applicant = require("../modal/studentModal")
 const Course= require("../modal/courseModal")
-// const requireLogin = require("../middleware/auth")
-// const bcrypt = require("bcryptjs");
-// const jwt = require("jsonwebtoken");
 
-// const { JWT_SECRET } = require("../keys");
-// const { restartDelay } = require("concurrently/src/defaults");
+const multer = require("multer");
 
-
-router.post("/new_application", async(req, res) => {
-
-
+const storage = multer.diskStorage({
+  destination: function (req, file, cb) {
+    cb(null, "./files");
+  },
+  filename: function (req, file, cb) {
+    const uniqueSuffix = Date.now();
+    cb(null, uniqueSuffix + file.originalname);
+  },
+});
+const upload = multer({ storage: storage });
+router.post("/new_application",upload.single('resume'), async(req, res) => {
+    console.log("reqqqq",req.file)
+    const fileName = req.file.filename;
+    console.log("my name",fileName)
     const {course_name,course_id,gpa,previous_experience,applicant_id,department,professor_name,applicant_name}=req.body
     const application = req.body;
+    application.resume= req.file.filename;
+    application.previous_experience=JSON.parse(previous_experience)
+    console.log("data",application)
 
   // Create a new User instance with the extracted data
   const newApplication = new Application(application);
@@ -42,26 +52,28 @@ router.post("/new_application", async(req, res) => {
 
 router.post("/applicant_update",async(req,res)=>{
     const {course_name,course_id,gpa,previous_experience,applicant_id,department,professor_name,applicant_name,short_listed,admin_selected,committee_selected,offer_accepted}=req.body
-    await Application.updateOne({ _id: req.body._id }, {...req.body })
+    let myData=req.body;
+    //myData.short_listed=true
+    console.log("Srrrrrrrr",req.query.comm)
+    if(!req.query.comm){
+      myData.short_listed=true
+    }
+    else{
+      myData.offer_accepted=true
+      const applicant=await Applicant.findOne({_id:applicant_id})
+      applicant.selected=true
+      const course=await Course.findOne({_id:course_id})
+      course.ta_selected=true
+      course.ta_name=applicant_id
+      console.log("ta name",course.ta_name)
+      await course.save()
+      await applicant.save()
+    }
+    await Application.updateOne({ _id: req.body._id }, {...myData})
         .then((data) => res.json(data))
         .catch((e) => res.status(400).json({ error: e.message }));
-    if(offer_accepted){
-        const course= await Course.findOne({_id:course_id})
-        course.ta_selected=true;
-        course.ta_name=applicant_name;
-        await course.save();
-        const applicant=await Applicant.findOne({_id:applicant_id})
-        applicant.selected={course_id:course_id,course_name:course_name,department:department,professor_name:professor_name,description:course.description}
-    }
-    if(admin_selected){
-        const applicant=await Applicant.findOne({_id:applicant_id})
-        const course= await Course.findOne({_id:course_id})
-        applicant.availOffers=[...applicant.availOffers,{course_id:course_id,course_name:course_name,description:course.description}]
-    }
 
 })
-
-
 
 router.get("/application", (req, res) => {
 
@@ -75,11 +87,17 @@ router.get("/application", (req, res) => {
 });
 
 router.get("/allApplications", (req, res) => {
+  console.log("Insidee here")
+  try{
     Application.find().sort({ createdAt: -1 }).then(data => {
         res.status(200).json(
             data
         );
     });
+  }
+  catch(e){
+    console.log(e)
+  }
 });
 
 

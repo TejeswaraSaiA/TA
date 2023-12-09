@@ -4,6 +4,7 @@ import { useSearchParams } from 'react-router-dom';
 import Applicant from '../TA Applicant/Applicant';
 import Admin from '../Administrator/Admin';
 import TACommitteeDashboard from '../TA Comittee/TA_Comitte';
+import Instructor from '../Instructor/Instructor';
 const Dashboard = () => {
     const [searchParams] = useSearchParams();
     const user = searchParams.get('user');
@@ -13,6 +14,7 @@ const Dashboard = () => {
          {user==="TA Applicant" && <Applicant/>}
          {user === "Administrator" && <Admin/>}
          {user === "TA Committee" && <TACommitteeDashboard/>}
+         {user === "Instructor" && <Instructor/>}
         </div>
     )
 }

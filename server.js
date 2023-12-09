@@ -26,12 +26,13 @@ const app = express();
 app.use(express.json())
 app.use(cors());
 
-app.use('/public', express.static('public'));
+
+app.use('/files', express.static(path.join(__dirname, 'files')));
 
 app.use('/api/users', require("./routes/student_route"))
 app.use('/api/courses', require("./routes/course_route")) 
 app.use('/api/applications', require("./routes/application_route"))
-
+app.use('/api/messages', require("./routes/message_route"))
 
 if (process.env.NODE_ENV === 'production') {
     app.use('/', express.static('client/build'))  

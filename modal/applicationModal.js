@@ -60,7 +60,11 @@ const applicationSchema = new mongoose.Schema({
     offer_accepted: {
         type: Boolean,
         default: false
+    },
+    resume:{
+        type:String,
     }
+
 }, { timestamps: true });
 
 module.exports = mongoose.model("Application", applicationSchema);

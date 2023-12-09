@@ -3,6 +3,7 @@ import { Form, Checkbox, Input, Button, Modal, Icon, Grid } from 'semantic-ui-re
 import { toast } from 'react-toastify';
 import { useDispatch, useSelector } from 'react-redux'
 import {createApplication,updateApplication,getApplications} from '../actions/application_actions'
+const _ = require('lodash');
 const NewApplication = (props) => {
   const dispatch = useDispatch();
   const [state, setState] = useState({
@@ -12,6 +13,7 @@ const NewApplication = (props) => {
     major: '',
     gpa: '',
     hasExperience: false,
+    resume:'',
     experiences: [],
   });
 
@@ -38,7 +40,10 @@ console.log("current user",currentUser)
   };
 
   const handleFileUpload = (e) => {
-    // Handle file upload here
+    console.log("sreeharinaiduu",e.target.files[0])
+    if(e.target.files[0]){
+      setState({...state,resume:e.target.files[0]})
+    }
   };
 
   const handleAddExperience = () => {
@@ -55,22 +60,37 @@ console.log("current user",currentUser)
     console.log(state);
   };
 
-  const submitHandler = () => {
+  const submitHandler = async() => {
+    const date=new Date();
+    console.log("resume",state.resume)
     try{
-      let finalApplication={
-        course_name: props.course_details && props.course_details.course_name ? props.course_details.course_name : "",
-        course_id : props.course_details && props.course_details._id ? props.course_details._id : "",
-        gpa : state.gpa,
-        previous_experience : state.experiences,
-        applicant_id : currentUser && currentUser._id ? currentUser._id : "",
-        department : state.major,
-        description : props.course_details && props.course_details.description ? props.course_details.description : "",
-        professor_name : props.course_details && props.course_details.professor_name ? props.course_details.professor_name : "",
-        applicant_name : state.name
-      }
-      console.log("final application",finalApplication)
-      dispatch(createApplication(finalApplication))
-      toast.success('fknsjkfsk');
+      // let finalApplication={
+      //   course_name: props.course_details && props.course_details.course_name ? props.course_details.course_name : "",
+      //   course_id : props.course_details && props.course_details._id ? props.course_details._id : "",
+      //   gpa : state.gpa,
+      //   previous_experience : state.experiences,
+      //   applicant_id : currentUser && currentUser._id ? currentUser._id : "",
+      //   department : state.major,
+      //   description : props.course_details && props.course_details.description ? props.course_details.description : "",
+      //   professor_name : props.course_details && props.course_details.professor_name ? props.course_details.professor_name : "",
+      //   applicant_name : state.name,
+      //   resume: state.resume && Math.floor(Math.random() * 9000) + 1000 + state.resume.name 
+      // }
+      let formData = new FormData();
+
+    formData.append("course_name", props.course_details?.course_name || "");
+    formData.append("course_id", props.course_details?._id || "");
+    formData.append("gpa", state.gpa || "");
+    formData.append("previous_experience", JSON.stringify(state.experiences) || "");
+    formData.append("applicant_id", currentUser?._id || "");
+    formData.append("department", state.major || "");
+    formData.append("description", props.course_details?.description || "");
+    formData.append("professor_name", props.course_details?.professor_name || "");
+    formData.append("applicant_name", state.name || "");
+    formData.append("resume", state.resume);  // Make sure state.resume is a File object
+
+    const response = await dispatch(createApplication(formData));
+      toast.success('applied Succefully');
       props.onClose();
     }
     catch(e){
@@ -85,7 +105,7 @@ console.log("current user",currentUser)
   return (
     <Modal open={props.isOpend} className="right-aligned-modal">
       <Modal.Header style={{display:'flex'}}>
-        <span style={{marginRight:"auto"}}>Modal Title</span>
+        <span style={{marginRight:"auto"}}>New Application</span>
         <Icon
           className='close-mark'
           name="close"
