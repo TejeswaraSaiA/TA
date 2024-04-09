@@ -69,9 +69,9 @@ const AddJob = (props) => {
   return (
     <Modal open={props.isOpend} className="right-aligned-modal">
       <Modal.Header style={{display:'flex'}}>
-        <span style={{marginRight:"auto"}}>Add New Position</span>
+        <span style={{marginRight:"auto"}}>Add New Job Role</span>
       </Modal.Header>
-      <Modal.Content style={{padding:30,height:'calc(700px)'}} className='modal-container'>
+      <Modal.Content style={{padding:30,height:'400px'}} className='modal-container'>
         <Form >
           <Grid columns={2} stackable style={{margin:0}}>
             <Grid.Row>
@@ -113,9 +113,9 @@ const AddJob = (props) => {
       <Modal.Actions style={{display:'flex',padding:"17px 30px"}}>
       
         
-            <Button onClick={() => props.onClose()} className='cancel-button'>cancel</Button>
+            <Button onClick={() => props.onClose()} className='cancel-button'>Cancel</Button>
        
-            <Button onClick={submitHandler} className='red_button' style={{marginLeft:"auto"}}>submit</Button>
+            <Button onClick={submitHandler} className='red_button' style={{marginLeft:"auto"}}>Submit</Button>
        
       </Modal.Actions>
       

@@ -65,7 +65,7 @@ const DataTable = ({ columns, data }) => {
         <span style={{display:'flex',alignItems:'center'}}>
           Page{' '}
           <strong>
-            {pageIndex + 1} of {page && page.length}
+            {pageIndex +1} of {page && page.length}
           </strong>{' '}
         </span>
         {/* <button onClick={() => nextPage()} disabled={!canNextPage}>

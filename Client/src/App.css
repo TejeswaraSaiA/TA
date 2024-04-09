@@ -152,15 +152,14 @@
 }
 
 .right-aligned-modal {
-  position: fixed !important;
-  top: 0;
-  right: 0;
-  height: 100%;
+ 
+  max-height: 80%;
+  /* height: 80%; */
   margin: 0 !important;
   display: flex !important;
   flex-direction: column;
   justify-content: space-between;
-  overflow: hidden;
+  overflow: scroll;
 }
 .modal-container{
   overflow: auto;
@@ -235,10 +234,10 @@
 .header-row>th{
   padding:10px;
 }
-.dashboard-page{
+/* .dashboard-page{
   padding:30px;
   margin-top:60px;
-}
+} */
 .pagination-container{
   display:flex;
   justify-content: center;
