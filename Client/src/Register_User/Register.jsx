@@ -79,16 +79,26 @@ const Register=()=>{
         //toast.success("Submitted Successfully")
     }
     return(
-        <div className='login-page-parent-container'>
+        <div className="backgroundCanvas">
+            <header className='header'>
+                <h1>Owl Assistants</h1>
+                <h3>Registration Page</h3>     
+            </header>
+            <div className='login-page-parent-container'>
                 <div className='login_page_container'> 
-                <Dropdown options={users} value={userType} placeholder={"select user"} selection onChange={(e,data)=>setUserType(data.value)}/>
-                <Input  placeholder='Enter Name' value={name} className='input_button_styles' onChange={(e)=>setName(e.target.value)}/>
-                <Input  placeholder='Enter ID/Email' value={email} className='input_button_styles' onChange={(e)=>setEmail(e.target.value)}/>
-                <Input  placeholder='Enter Password' value={password} className='input_button_styles' onChange={(e)=>setPassword(e.target.value)}/>
-                <Dropdown options={department_values} value={department} placeholder={"select department"} selection onChange={(e,data)=>setDepartment(data.value)}/>
-                <Button type='submit' className='red_button' onClick={registerUserHandler}>Sign-Up</Button>
+                    <div className='mainSection'>
+                        <div className='internalSection'>
+                            <Dropdown options={users} value={userType} placeholder={"select user"} selection onChange={(e,data)=>setUserType(data.value)}/><br/>
+                            <Input  placeholder='Enter Name' value={name} className='input_button_styles' onChange={(e)=>setName(e.target.value)}/><br/>
+                            <Input  placeholder='Enter ID/Email' value={email} className='input_button_styles' onChange={(e)=>setEmail(e.target.value)}/><br/>
+                            <Input  placeholder='Enter Password' value={password} className='input_button_styles' onChange={(e)=>setPassword(e.target.value)}/><br/>
+                            <Dropdown options={department_values} value={department} placeholder={"select department"} selection onChange={(e,data)=>setDepartment(data.value)}/><br/>
+                            <Button type='submit' className='red_button' onClick={registerUserHandler}>Sign-Up</Button>
+                        </div>
+                    </div>
                 </div>
             </div>
+        </div>
     )
 }
 
