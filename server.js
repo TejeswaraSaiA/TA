@@ -9,7 +9,7 @@ let path = require('path')
 
 //const api = require('./backend/routes')
 
-mongoose.connect("mongodb+srv://sreehari:htJdrHzjzwGrAAjT@cluster0.0ihbv.mongodb.net/TA?retryWrites=true&w=majority", {
+mongoose.connect("mongodb+srv://owlassistants:Password*123@owlassistants.ud0bghk.mongodb.net/?retryWrites=true&w=majority&appName=OwlAssistants", {
     useNewUrlParser: true,
     useUnifiedTopology: true,
 });
