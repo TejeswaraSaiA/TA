@@ -73,14 +73,14 @@ props.onClose();
           style={{ cursor: 'pointer' }}
         />
       </Modal.Header>
-      <Modal.Content style={{padding:30,height:'calc(700px)'}} className='modal-container'>
+      <Modal.Content style={{padding:30,height:'400px'}} className='modal-container'>
         <h2>Applied Users</h2>
         <DataTable columns={appliedUsersColumns} data={courseAppliedUsers } />
       </Modal.Content>
       <Modal.Actions style={{display:'flex',padding:"17px 30px"}}>
       
         
-            <Button onClick={() => props.onClose()} className='cancel-button'>cancel</Button>
+            <Button onClick={() => props.onClose()} className='cancel-button'>Cancel</Button>
        
             <Button onClick={submitHandler} className='red_button' style={{marginLeft:"auto"}}>Update</Button>
        

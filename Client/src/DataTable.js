@@ -65,7 +65,7 @@ const DataTable = ({ columns, data }) => {
         <span style={{display:'flex',alignItems:'center'}}>
           Page{' '}
           <strong>
-            {pageIndex +1} of {page && page.length}
+            {pageIndex} of {data+1 && data.length}
           </strong>{' '}
         </span>
         {/* <button onClick={() => nextPage()} disabled={!canNextPage}>
@@ -74,7 +74,6 @@ const DataTable = ({ columns, data }) => {
         <div className='pagination-btn'>
         <CiSquareChevRight cursor={!canNextPage && 'pointer'} color={canNextPage ? '#000000' : '#EBEBE4'} size={30} onClick={() => nextPage()} disabled={!canNextPage}/>
         </div>
-        
       </div>
     </div>
   );

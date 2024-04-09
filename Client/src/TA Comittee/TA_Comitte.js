@@ -75,19 +75,24 @@ const TACommittee = () => {
     <div>
       {/* Top Header */}
       {openAppliedUser && <AppliedUser onClose={closeTAApplicantsHandler} isOpend={openAppliedUser} opendCourse={opendCourse} />}
-      <div className='top-header'>
-        <div className='bottom-header'>
-          <p className='link-styles' style={{ fontWeight: 'bolder', marginRight: 'auto' }}>Welcome User</p>
-          <p className='link-styles'>Notifications</p>
-          <p className='link-styles' onClick={()=>history("/")}>Logout</p>
+      <header className='header'>
+          <h1>Owl Assistants</h1>   
+          <h3>TA Committee Member</h3>  
+      </header>
+      <nav className='navigation'>
+        <div className='nav-left'>
+          <button className='nav-left-button'>Welcome User</button>
         </div>
-      </div>
 
-      {/* Dashboard Tape */}
+        <div className='nav-right'>
+          <button className='nav-right-button'>Notifications</button>
+          <button className='nav-right-button'onClick={()=>{history("/")}}>Log Out</button>
+        </div>
+      </nav>
       <div className='dashboard-page'>
 
-        <div style={{margin:0}}>
-          <h2>TA Sortlisted Jobs</h2>
+        <div style={{margin:0,padding:'50px'}}>
+          <h2>TA Shorlisted Jobs</h2>
           <DataTable columns={deadlinePassedColumns} data={deadlinePassedData}/>
         </div>
       </div>
