@@ -25,7 +25,6 @@ const Applicant = (props) => {
     console.log("MyCourse",courses)
     console.log("applicant id",applicant_id);
     console.log("All Applications",applications)
-    //let courses = [{ title: "Software Engineering", professor: "Hanqi Zuang", dept: 'Computer Science', description: 'Software engineering course is an intro of well organised set of software descriptions..' }, { title: "Analysis of Algorithms", professor: "Tony Stark", dept: 'Computer Science', description: 'AOA is a well designed onlince course of modern computing problom and with a set of algorithms and standard solutions..' }, { title: "Data Science", professor: "Steve Rogers", dept: 'Computer Science', description: 'Data Science course is an intro of well organised set of software descriptions..' }, { title: "Theory and Inplementation", professor: "Thor", dept: 'Computer Science', description: 'Theory and Implementation course is an intro of well organised set of software descriptions..' }]
     const [isOpenModal,openModal]=useState(false)
     const [course_details,setCourseDetails]=useState({})
     const closeModalHandler=()=>{
@@ -40,16 +39,29 @@ const Applicant = (props) => {
     }
     return (
         <div>
+            <header className='header'>
+                <h1>Owl Assistants</h1>   
+                <h3>TA Applicant</h3>  
+            </header>
             {isOpenModal && <NewApplication onClose={closeModalHandler} isOpend={openModal} applicant_id={applicant_id} course_details={course_details}/>}
-            <div className='top-header'>
-                <div className='bottom-header'>
-                    <p className='link-styles' style={{ fontWeight: 'bolder', marginRight: 'auto' }} onClick={()=>setOpenMyJobs(false)}>Welcome User</p>
-                    <p className='link-styles' onClick={()=>setOpenMyJobs(true)}>My jobs</p>
-                    <p className='link-styles'>Notifications</p>
-                    <p className='link-styles' onClick={()=>{history("/")}}>Logout</p>
+            <nav className='navigation'>
+                <div className='nav-left'>
+                <button className='nav-left-button' onClick={()=>setOpenMyJobs(false)}>Welcome User</button>
+                <button className='nav-left-button'onClick={()=>setOpenMyJobs(true)}>My Jobs</button>
+                <button className='nav-left-button'>Inbox</button>
                 </div>
-            </div>
-            {!openMyJobs ? <div style={{padding:"30px 30px 30px 0px",marginTop:60}}>
+
+                <div className='nav-right'>
+                <button className='nav-right-button'>Notifications</button>
+                <button className='nav-right-button'>Profile</button>
+                <button className='nav-right-button'onClick={()=>{history("/")}}>Log Out</button>
+                </div>
+            </nav>
+            {!openMyJobs ?
+                <div style={{fontSize:'20px',textAlign: 'left', paddingLeft: '30px', paddingTop: '20px', fontWeight: 'bold'}}>Available Applications</div> :
+                <div style={{fontSize:'20px',textAlign: 'left', paddingLeft: '30px', paddingTop: '20px', fontWeight: 'bold'}}>Applied Applications</div>
+            }
+            {!openMyJobs ? <div style={{padding:"30px 30px 30px 0px"}}>
                 <Grid style={{margin:0}}>
                     <Grid.Row columns={3} style={{padding:0}}>
                   

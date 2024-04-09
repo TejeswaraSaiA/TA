@@ -8,7 +8,7 @@
 .input_button_styles:focus{
   border: 1px solid #2f2f31;
 }
-button {
+/* button {
   cursor: pointer;
   border: 0;
   border-radius: 4px;
@@ -18,7 +18,7 @@ button {
   padding: 10px 0;
   box-shadow: 0 0 20px rgba(104, 85, 224, 0.2);
   transition: 0.4s;
-}
+} */
 .red_button{
   width:150px;
   border: none !important;
@@ -72,7 +72,7 @@ button {
   gap:10px;
 }
 .login_page_container .input_button_styles {
-  width:100%;
+  width:450px;
   border:none;
   
 }
@@ -102,10 +102,13 @@ button {
 }
 
 .layout-left-container{
-  height:100%;
+  height:78%;
   display: flex;
-  background-color: #3939cb;
+  background-color: #e4990e;
   flex: 0 0 40%;
+}
+.layout-left-section {
+  margin-left: 50px;
 }
 
 .layout-right-container{
@@ -131,7 +134,7 @@ button {
 
 .link-styles{
   cursor: pointer;
-  color:white;
+  color:rgb(54, 190, 34);
   margin:0px;
 }
 .top-header{
@@ -240,4 +243,129 @@ button {
   display:flex;
   justify-content: center;
   gap:40px;
+}
+
+.backgroundCanvas {
+  background-color: #282c34;
+  min-height: 10vh;
+}
+
+.header {
+  text-align: center;
+  border: 4px solid #F7EBD4;
+  background-color: #559E54;
+  color: #0A3409;
+  font-size: 20px;
+  letter-spacing: 3px;  
+  padding:10px;
+}
+
+.navigation {
+  background-color: #F7EBD4;
+  min-height: 30px;
+  padding-left: 10px;
+  padding-right: 10px;
+  display: flex;
+}
+
+.nav-left {
+  display: flex;
+  justify-content: flex-start;
+  flex: auto;
+}
+
+.nav-left-button {
+  font-size: 20px;
+  margin: 10px;
+  border: none;
+  background-color: #F7EBD4;
+  color: #0A3409;
+  font-weight: bolder;
+}
+
+.nav-left-button:hover {
+  position: relative;
+  top:-2px;
+  color: #096e07;
+}
+
+.nav-right {
+  display: flex;
+  justify-content: flex-end;
+  flex: auto;
+}
+
+.nav-right-button {
+  font-size: 20px;
+  margin: 10px;
+  border: none;
+  background-color: #F7EBD4;
+  color: #0A3409;
+  font-weight: bolder;
+}
+
+.nav-right-button:hover {
+  position: relative;
+  top:-2px;
+  color: #096e07;
+}
+
+.mainSection {
+  min-height: 10vh;
+  border: 10px solid transparent;
+}
+
+.internalSection {
+  background-color: #E8D4F7;
+  min-height: 10vh;
+  border: 20px solid transparent;
+}
+
+.product-card-container {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.footer {
+  font-size: 18px;
+  padding-bottom: 10px;
+  color:white;
+  text-align: center;
+}
+
+.filterProducts {
+  background-color: hsl(274, 47%, 70%);
+  padding: 10px;
+  margin: 10px;
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+}
+
+.filterProducts h3 {
+  margin: unset;
+}
+
+.filterButtons button {
+  font-size: 15px;
+  margin: 3px;
+}
+
+.formSection {
+  width: 400px;
+  position: relative;
+  left: 34%;
+  text-align: center;
+  border: 4px solid #F7EBD4;
+  background-color: #559E54;
+  color: #0A3409;
+  font-size: 20px;
+  letter-spacing: 3px; 
+  padding: 10px;
+}
+
+.outputLine {
+  color: rgb(0, 247, 255);
+  font-size: 15px;
+  font-weight: bold;
 }
