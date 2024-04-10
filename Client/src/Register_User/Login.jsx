@@ -36,7 +36,7 @@ const Login=()=>{
         if(email && password){
             await axios.post("/api/users/signin",{id:email,password:password,userType:userType})
             .then((data)=>{
-                console.log("dataaa",data)
+                console.log("data",data)
                 localStorage.setItem('currentUser', JSON.stringify(data.data));
                 history(`/dashboard?user=${data.data.userType}`)
             })

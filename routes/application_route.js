@@ -19,9 +19,9 @@ const storage = multer.diskStorage({
 });
 const upload = multer({ storage: storage });
 router.post("/new_application",upload.single('resume'), async(req, res) => {
-    console.log("reqqqq",req.file)
+    // console.log("reqqqq",req.file)
     const fileName = req.file.filename;
-    console.log("my name",fileName)
+    // console.log("my name",fileName)
     const {course_name,course_id,gpa,previous_experience,applicant_id,department,professor_name,applicant_name}=req.body
     const application = req.body;
     application.resume= req.file.filename;
@@ -54,7 +54,7 @@ router.post("/applicant_update",async(req,res)=>{
     const {course_name,course_id,gpa,previous_experience,applicant_id,department,professor_name,applicant_name,short_listed,admin_selected,committee_selected,offer_accepted}=req.body
     let myData=req.body;
     //myData.short_listed=true
-    console.log("Srrrrrrrr",req.query.comm)
+    // console.log("Srrrrrrrr",req.query.comm)
     if(!req.query.comm){
       myData.short_listed=true
     }

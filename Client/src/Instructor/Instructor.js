@@ -1,13 +1,30 @@
 import React,{useState} from 'react'
 import { Card, Grid,Button } from 'semantic-ui-react'
 import InstructorMessage from './InstructorMessage'
+import { useNavigate } from 'react-router-dom';
 const Instructor=(props)=>{
     let courses = [{ course_name: "Software Engineering", professor_name: "Hanqi Zuang", department: 'Computer Science', applicant_name: 'Hari' }]
     const [isOpenModal,openModal]=useState(false)
     const clickHandler=()=>{
         openModal(true)
     }
+    const history=useNavigate()
 return(
+    <div>
+    <header className='header'>
+          <h1>Owl Assistants</h1>   
+          <h3>TA Instructor</h3>  
+      </header>
+      <nav className='navigation'>
+        <div className='nav-left'>
+          <button className='nav-left-button'>Welcome User</button>
+        </div>
+
+        <div className='nav-right'>
+          <button className='nav-right-button'>Notifications</button>
+          <button className='nav-right-button'onClick={()=>{history("/")}}>Log Out</button>
+        </div>
+      </nav>
     <div style={{padding:"30px 30px 30px 0px",marginTop:60}}>
         {isOpenModal && <InstructorMessage open={isOpenModal} onClose={()=>openModal(false)}/>}
                 <Grid style={{margin:0}}>
@@ -41,6 +58,7 @@ return(
                     </Grid.Row>
                 </Grid>
 
+            </div>
             </div>
 )
 }

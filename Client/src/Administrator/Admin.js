@@ -32,7 +32,6 @@ const AdminDashboard = () => {
         taSettledCoursesData.push(courses[i]) 
       }
       else{
-        console.log("jansii",courses[0].createdAt)
         const momentCreatedAt=moment(courses[i].createdAt,'YYYY-MM-DDTHH:mm:ss')
         if (momentCreatedAt.isValid()) {
           const currentDate = moment();
@@ -99,11 +98,11 @@ const AdminDashboard = () => {
   }
 
   const addNewJobHandler=()=>{
-    console.log("heree")
+    // console.log("heree")
     setNewJob(true)
   }
   const closeAddJobHandler=()=>{
-    console.log("Inside Close")
+    // console.log("Inside Close")
     setNewJob(false)
     dispatch(getCourse())
   }
@@ -112,7 +111,7 @@ const AdminDashboard = () => {
     setAppliedUser(true);
     setOpendCourse(data)
   }
-console.log("myopenn",openAddNewJob)
+console.log(openAddNewJob)
   return (
     <div>
       {/* Top Header */}
@@ -142,13 +141,13 @@ console.log("myopenn",openAddNewJob)
 
         {/* Deadline Passed Jobs */}
         <div style={{margin:0, padding:'50px'}}>
-          <h2>Deadline Passed Jobs</h2>
+          <h2>Job Applications</h2>
           <DataTable columns={deadlinePassedColumns} data={deadlinePassedData}/>
         </div>
 
         {/* TA Settled Courses */}
         <div style={{margin:0, padding:'50px'}}>
-          <h2>TA Settled Courses</h2>
+          <h2>Reviewed Applications</h2>
           <DataTable columns={taSettledColumns} data={taSettledCoursesData} />
         </div>
       </div>

@@ -9,7 +9,7 @@ const AppliedUser = (props) => {
   const dispatch=useDispatch();
 
     const [courseAppliedUsers,setAppliedUsers]=useState([])
-    console.log("OpendCourse",props.opendCourse);
+    // console.log("Opened Course",props.opendCourse);
     //const {applications}=useSelector((state)=>state.getAllApplicationReducer)
     useEffect(()=>{
       dispatch(getApplications());
@@ -29,7 +29,7 @@ const AppliedUser = (props) => {
     setAppliedUsers(appliedUsers)
     console.log("appp",appliedUsers)
     },applications)
-    console.log("Applicationss",applications)
+    console.log("Applications",applications)
     const appliedUsersColumns=[
     { Header: 'SNO', accessor: '_id',},
     { Header: 'User Name', accessor: 'applicant_name' },

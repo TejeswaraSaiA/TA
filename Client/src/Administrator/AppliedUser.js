@@ -11,7 +11,6 @@ const AppliedUser = (props) => {
     const [onViewUser,setViewUser]=useState(false);
     const [courseAppliedUsers,setAppliedUsers]=useState([])
     const [viewedUser,setViewUserData]=useState({})
-    console.log("OpendCourse",props.opendCourse);
     //const {applications}=useSelector((state)=>state.getAllApplicationReducer)
     useEffect(()=>{
       dispatch(getApplications());
@@ -29,9 +28,9 @@ const AppliedUser = (props) => {
       // appliedUsers=
     }
     setAppliedUsers(appliedUsers)
-    console.log("appp",appliedUsers)
+    // console.log("appp",appliedUsers)
     },applications)
-    console.log("Applicationss",applications)
+    // console.log("Applicationss",applications)
     const appliedUsersColumns=[
     { Header: 'SNO', accessor: '_id',},
     { Header: 'User Name', accessor: 'applicant_name' },

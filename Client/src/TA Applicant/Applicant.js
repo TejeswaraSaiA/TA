@@ -23,7 +23,7 @@ const Applicant = (props) => {
     const {courses}=useSelector((state)=>state.getAllCourseReducer)
     const {applications}=useSelector((state)=>state.getAllApplicationReducer)
     console.log("MyCourse",courses)
-    console.log("applicant id",applicant_id);
+    console.log("Applicant ID",applicant_id);
     console.log("All Applications",applications)
     const [isOpenModal,openModal]=useState(false)
     const [course_details,setCourseDetails]=useState({})

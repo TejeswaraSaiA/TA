@@ -5,7 +5,8 @@ import { useTable, usePagination } from 'react-table';
 //mport './DataTable.css'; // Import a separate CSS file for styles
 import { CiSquareChevLeft,CiSquareChevRight } from "react-icons/ci";
 const DataTable = ({ columns, data }) => {
-  const pageSize = data && data.length > 3 ? 3 : 1;
+  // const pageSize = data && data.length > 3 ? 3 : 1;
+  const pageSize = 3;
 
   const {
     getTableProps,
@@ -65,7 +66,7 @@ const DataTable = ({ columns, data }) => {
         <span style={{display:'flex',alignItems:'center'}}>
           Page{' '}
           <strong>
-            {pageIndex} of {data+1 && data.length}
+            {pageIndex} of {page && page.length}
           </strong>{' '}
         </span>
         {/* <button onClick={() => nextPage()} disabled={!canNextPage}>

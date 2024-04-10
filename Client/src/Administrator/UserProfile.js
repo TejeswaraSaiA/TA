@@ -33,7 +33,7 @@ const UserProfile = (props) => {
   };
 
   const { name, email, mobile, major, gpa, hasExperience, experiences } = state;
-  console.log("vieewed User",props.viewedUser)
+  console.log("Viewed User",props.viewedUser)
   return (
     <Modal open={props.isOpend} className="right-aligned-modal">
       <Modal.Header style={{display:'flex'}}>

@@ -31,7 +31,6 @@ console.log("current user",currentUser)
 
 
   const handleInputChange = (e, { name, value }) => {
-    console.log("sree",e.target.value)
     setState({ ...state, [name]: value });
   };
 
@@ -40,7 +39,6 @@ console.log("current user",currentUser)
   };
 
   const handleFileUpload = (e) => {
-    console.log("sreeharinaiduu",e.target.files[0])
     if(e.target.files[0]){
       setState({...state,resume:e.target.files[0]})
     }
