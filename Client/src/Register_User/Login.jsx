@@ -50,24 +50,19 @@ const Login=()=>{
         }
     }
     return(
-        <div className="backgroundCanvas">
-            <header className='header'>
-                <h1>Owl Assistants</h1>
-                <h3>Login Page</h3>     
-            </header>
             <div className='login-page-parent-container'>
                 <div className='login_page_container'>
                     <div className='mainSection'>
                         <div className='internalSection'>
-                            <Dropdown options={users} value={userType} placeholder={"select user"} selection onChange={(e,data)=>setUserType(data.value)}/><br/>
-                            <Input value={email} placeholder='Enter ID/Email' className='input_button_styles' onChange={(e)=>setEmail(e.target.value)}/><br/>
-                            <Input type='password' value={password} placeholder='Enter Password' className='input_button_styles' onChange={(e)=>setPassword(e.target.value)}/><br/>
-                            <Button type='submit' className='red_button' onClick={LognHandler}>Submit</Button>
+                            <h2 style={{color:'white'}}> Login to Account </h2>
+                            <Dropdown style={{paddingTop:'10px'}} options={users} value={userType} placeholder={"select user"} selection onChange={(e,data)=>setUserType(data.value)}/><br/>
+                            <Input value={email} style={{paddingTop:'10px'}} placeholder='Enter ID/Email' className='input_button_styles' onChange={(e)=>setEmail(e.target.value)}/><br/>
+                            <Input type='password' style={{paddingTop:'10px', paddingBottom:'10px'}} value={password} placeholder='Enter Password' className='input_button_styles' onChange={(e)=>setPassword(e.target.value)}/><br/>
+                            <Button type='submit' className='red_button' onClick={LognHandler}>Login</Button>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
     )
 }
 

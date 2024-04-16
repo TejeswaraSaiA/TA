@@ -79,26 +79,21 @@ const Register=()=>{
         //toast.success("Submitted Successfully")
     }
     return(
-        <div className="backgroundCanvas">
-            <header className='header'>
-                <h1>Owl Assistants</h1>
-                <h3>Registration Page</h3>     
-            </header>
             <div className='login-page-parent-container'>
                 <div className='login_page_container'> 
                     <div className='mainSection'>
                         <div className='internalSection'>
-                            <Dropdown options={users} value={userType} placeholder={"select user"} selection onChange={(e,data)=>setUserType(data.value)}/><br/>
-                            <Input  placeholder='Enter Name' value={name} className='input_button_styles' onChange={(e)=>setName(e.target.value)}/><br/>
-                            <Input  placeholder='Enter ID/Email' value={email} className='input_button_styles' onChange={(e)=>setEmail(e.target.value)}/><br/>
-                            <Input  placeholder='Enter Password' value={password} className='input_button_styles' onChange={(e)=>setPassword(e.target.value)}/><br/>
+                            <h2 style={{color:'white'}}> Register User </h2>
+                            <Dropdown style={{paddingTop:'10px'}} options={users} value={userType} placeholder={"select user"} selection onChange={(e,data)=>setUserType(data.value)}/><br/>
+                            <Input style={{paddingTop:'10px'}} placeholder='Enter Name' value={name} className='input_button_styles' onChange={(e)=>setName(e.target.value)}/><br/>
+                            <Input style={{paddingTop:'10px'}} placeholder='Enter ID/Email' value={email} className='input_button_styles' onChange={(e)=>setEmail(e.target.value)}/><br/>
+                            <Input style={{paddingTop:'10px', paddingBottom:'10px'}} placeholder='Enter Password' value={password} className='input_button_styles' onChange={(e)=>setPassword(e.target.value)}/><br/>
                             <Dropdown options={department_values} value={department} placeholder={"select department"} selection onChange={(e,data)=>setDepartment(data.value)}/><br/>
-                            <Button type='submit' className='red_button' onClick={registerUserHandler}>Sign-Up</Button>
+                            <Button style={{marginTop:'10px'}} type='submit' className='red_button' onClick={registerUserHandler}>Register</Button>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
     )
 }
 

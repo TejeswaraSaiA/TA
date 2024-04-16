@@ -137,13 +137,14 @@
   color:rgb(54, 190, 34);
   margin:0px;
 }
-.top-header{
-  display:flex;
-  background-color: #516296;
-  padding:20px 30px;
-  position:fixed;
-  top:0;
-  width:100%;
+.header {
+  text-align: center;
+  padding-top: 20px;
+  color: cadetblue;
+  background-color: black;
+  border-color: white;
+  border: 77px;
+  padding-bottom: 10px;
 }
 .bottom-header{
   width:100%;
@@ -231,9 +232,11 @@
 .data-row>td{
   padding:10px;
 }
+
 .header-row>th{
   padding:10px;
 }
+
 /* .dashboard-page{
   padding:30px;
   margin-top:60px;
@@ -249,7 +252,7 @@
   min-height: 10vh;
 }
 
-.header {
+/* .header {
   text-align: center;
   border: 4px solid #F7EBD4;
   background-color: #559E54;
@@ -257,7 +260,7 @@
   font-size: 20px;
   letter-spacing: 3px;  
   padding:10px;
-}
+} */
 
 .navigation {
   background-color: #F7EBD4;
@@ -315,7 +318,7 @@
 }
 
 .internalSection {
-  background-color: #E8D4F7;
+  /* background-color: floralwhite; */
   min-height: 10vh;
   border: 20px solid transparent;
 }
@@ -367,4 +370,58 @@
   color: rgb(0, 247, 255);
   font-size: 15px;
   font-weight: bold;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: #333333; /* Light Gray */
+  margin: 0;
+  padding: 0;
+}
+.header {
+  text-align: center;
+  padding-top: 20px;
+  color: cadetblue;
+  background-color: black;
+  border-color: white;
+  border: 77px;
+  padding-bottom: 10px;
+}
+.main-container {
+  position: relative;
+  max-width: 100%;
+  overflow: hidden;
+  height: 700px;
+}
+.background-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 110%;
+  background-image: url('./images/background.jpg');
+  background-size: cover;
+  filter: blur(4px);
+  z-index: -1;
+}
+.container {
+  top: 60px;
+  position: relative;
+  /* max-width: 600px; */
+  margin: 0 auto;
+  text-align: center;
+  padding-top: 10px;
+  z-index: 1;
+}
+.lead {
+  margin-bottom: 15px;
+  margin-top: 30px;
+}
+.btn {
+  margin-top: 20px;
+}
+.info-text {
+  color: #333333; /* Dark Gray */
+  font-size: 18px;
+  margin-bottom: 30px;
 }
