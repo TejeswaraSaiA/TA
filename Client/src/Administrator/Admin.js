@@ -113,7 +113,7 @@ const AdminDashboard = () => {
   }
 console.log(openAddNewJob)
   return (
-    <div>
+    <div style={{backgroundColor:'cornflowerblue'}}>
       {/* Top Header */}
       {openAppliedUser && <AppliedUser onClose={closeTAApplicantsHandler} isOpend={openAppliedUser} opendCourse={opendCourse} />}
       {openAddNewJob &&  <AddJob onClose={closeAddJobHandler} isOpend={openAddNewJob}/>}

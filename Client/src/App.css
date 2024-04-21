@@ -5,20 +5,11 @@
 .input_button_styles{
   border: 1px solid #c7c7cb;
 }
+
 .input_button_styles:focus{
   border: 1px solid #2f2f31;
 }
-/* button {
-  cursor: pointer;
-  border: 0;
-  border-radius: 4px;
-  font-weight: 600;
-  margin: 0 10px;
-  width: 200px;
-  padding: 10px 0;
-  box-shadow: 0 0 20px rgba(104, 85, 224, 0.2);
-  transition: 0.4s;
-} */
+
 .red_button{
   width:150px;
   border: none !important;
@@ -29,10 +20,6 @@
   color:#ffffff !important;
 
 }
-
-
-
-
 
 .red_button:hover{
   background-color: #c66d65 !important;
@@ -391,14 +378,14 @@ body {
   position: relative;
   max-width: 100%;
   overflow: hidden;
-  height: 700px;
+  height: -webkit-fill-available;
 }
 .background-image {
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
-  height: 110%;
+  height: 100%;
   background-image: url('./images/background.jpg');
   background-size: cover;
   filter: blur(4px);
@@ -424,4 +411,17 @@ body {
   color: #333333; /* Dark Gray */
   font-size: 18px;
   margin-bottom: 30px;
+}
+
+.card-header {
+  text-align: center;
+  padding-top: 20px;
+  color: aqua;
+  background-color: black !important;
+  border-color: white;
+  border: 77px;
+  padding-bottom: 10px;
+}
+.card-container {
+  color: aquamarine;
 }

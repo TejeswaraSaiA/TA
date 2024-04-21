@@ -111,7 +111,7 @@ console.log("current user",currentUser)
           style={{ cursor: 'pointer' }}
         />
       </Modal.Header>
-      <Modal.Content style={{padding:30,height:'calc(700px)'}} className='modal-container'>
+      <Modal.Content style={{padding:30,height:'-webkit-fit-content'}} className='modal-container'>
         <Form onSubmit={handleSubmit}>
           <Grid columns={3} stackable style={{margin:0}}>
             <Grid.Row>

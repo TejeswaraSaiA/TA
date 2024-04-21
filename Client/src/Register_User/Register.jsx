@@ -1,7 +1,7 @@
-import react,{useState} from 'react'
+import {useState} from 'react'
 import { Input,Button,Dropdown } from 'semantic-ui-react'
 import axios from 'axios';
-import { ToastContainer, toast } from 'react-toastify';
+import { toast } from 'react-toastify';
 import 'react-dropdown/style.css';
 const Register=()=>{
     let users=[
@@ -84,7 +84,7 @@ const Register=()=>{
                     <div className='mainSection'>
                         <div className='internalSection'>
                             <h2 style={{color:'white'}}> Register User </h2>
-                            <Dropdown style={{paddingTop:'10px'}} options={users} value={userType} placeholder={"select user"} selection onChange={(e,data)=>setUserType(data.value)}/><br/>
+                            <Dropdown style={{paddingTop:'10px'}} options={users} value={userType} placeholder={"select user"} selection onChange={(e,data)=>setUserType(data.value)} disabled/><br/>
                             <Input style={{paddingTop:'10px'}} placeholder='Enter Name' value={name} className='input_button_styles' onChange={(e)=>setName(e.target.value)}/><br/>
                             <Input style={{paddingTop:'10px'}} placeholder='Enter ID/Email' value={email} className='input_button_styles' onChange={(e)=>setEmail(e.target.value)}/><br/>
                             <Input style={{paddingTop:'10px', paddingBottom:'10px'}} placeholder='Enter Password' value={password} className='input_button_styles' onChange={(e)=>setPassword(e.target.value)}/><br/>
