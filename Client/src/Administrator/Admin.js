@@ -6,24 +6,32 @@ import DataTable from '../DataTable';
 import AppliedUser from './AppliedUser';
 import AddJob from './AddJob';
 import { useDispatch, useSelector } from "react-redux";
-import {regersterCourse,getCourse} from '../actions/course_action'
+import {registerCourse,getCourse} from '../actions/course_action'
 import { useNavigate } from 'react-router-dom';
 import moment from 'moment';
+import AddUsers from './AddUsers';
+
 const AdminDashboard = () => {
   const history=useNavigate()
-  // Sample data for Active Jobs table
   const dispatch = useDispatch();
-  useEffect(()=>{
-    dispatch(getCourse());
-  },[])
   const {courses}=useSelector((state)=>state.getAllCourseReducer)
   console.log("MyCourse",courses)
   const [openAppliedUser,setAppliedUser]=useState(false);
   const [openAddNewJob,setNewJob]=useState(false);
+  const [newUser, setNewUser] = useState(false);
   const [opendCourse,setOpendCourse]=useState({})
   let activeJobsData = []
   let deadlinePassedData = []
   let taSettledCoursesData = [] 
+  let currentUser = ''
+  const [name, setName] = useState("")
+
+  useEffect(()=>{
+    currentUser=JSON.parse(localStorage.currentUser)
+    setName(currentUser.name)
+    dispatch(getCourse());
+  },[])
+
   if(courses && courses.length>0)
   {
     //activeJobsData=courses
@@ -107,27 +115,35 @@ const AdminDashboard = () => {
     dispatch(getCourse())
   }
 
+  const closeAddNewUserHandler=()=>{
+    // console.log("Inside Close")
+    setNewUser(false)
+    // dispatch(getCourse())
+  }
+
   const onOpenTaApplicants=(data)=>{
     setAppliedUser(true);
     setOpendCourse(data)
   }
 console.log(openAddNewJob)
   return (
-    <div style={{backgroundColor:'cornflowerblue'}}>
+    <div>
       {/* Top Header */}
       {openAppliedUser && <AppliedUser onClose={closeTAApplicantsHandler} isOpend={openAppliedUser} opendCourse={opendCourse} />}
       {openAddNewJob &&  <AddJob onClose={closeAddJobHandler} isOpend={openAddNewJob}/>}
+      {newUser &&  <AddUsers onClose={closeAddNewUserHandler} isOpend={newUser}/>}
       <header className='header'>
           <h1>Owl Assistants</h1>   
           <h3>TA Administrator</h3>  
       </header>
       <nav className='navigation'>
         <div className='nav-left'>
-          <button className='nav-left-button'>Welcome User</button>
+          <button className='nav-left-button'>Welcome {name}!</button>
         </div>
 
         <div className='nav-right'>
-          <button className='nav-right-button'onClick={()=>setNewJob(true)}>Add a New Job</button>
+          <button className='nav-right-button' onClick={()=>setNewJob(true)}>Add a New Job</button>
+          <button className='nav-right-button' onClick={()=>setNewUser(true)}>Add Users</button>
           <button className='nav-right-button'>Notifications</button>
           <button className='nav-right-button'onClick={()=>{history("/")}}>Log Out</button>
         </div>
