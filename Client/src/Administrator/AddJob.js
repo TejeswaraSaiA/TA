@@ -3,7 +3,7 @@ import { Form, Checkbox, Input, Button, Modal, Icon, Grid,Dropdown } from 'seman
 import { toast } from 'react-toastify';
 import axios from 'axios';
 import { useDispatch, useSelector } from 'react-redux'
-import {regersterCourse,getCourse} from '../actions/course_action'
+import {regi,getCourse, registerCourse} from '../actions/course_action'
 const AddJob = (props) => {
   const [course, setCourse] = useState({
     course_name:"",
@@ -31,7 +31,7 @@ const AddJob = (props) => {
   const submitHandler = () => {
     
     try{
-        dispatch(regersterCourse(course))
+        dispatch(registerCourse(course))
         dispatch(getCourse())
         toast.success("Course Added Successfully")
         props.onClose();

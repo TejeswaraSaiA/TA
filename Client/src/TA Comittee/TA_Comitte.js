@@ -3,7 +3,7 @@ import { Table } from 'semantic-ui-react';
 import DataTable from '../DataTable';
 import AppliedUser from './AppliedUser';
 import { useDispatch, useSelector } from "react-redux";
-import {regersterCourse,getCourse} from '../actions/course_action'
+import {registerCourse,getCourse} from '../actions/course_action'
 import { useNavigate } from 'react-router-dom';
 import moment from 'moment';
 const TACommittee = () => {

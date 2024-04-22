@@ -1,6 +1,6 @@
 import axios from "axios";
 
-export const regersterCourse = (book) => async(dispatch) => {
+export const registerCourse = (book) => async(dispatch) => {
     dispatch({
         type: "REGISTER_COURSE_REQUEST",
     });
