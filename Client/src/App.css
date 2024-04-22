@@ -424,4 +424,7 @@ body {
 }
 .card-container {
   color: aquamarine;
+  max-height: 125px;
+  overflow: scroll;
+  overflow-x: hidden;
 }
