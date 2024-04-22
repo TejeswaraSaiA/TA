@@ -8,6 +8,7 @@ import { useNavigate } from 'react-router-dom';
 import {createApplication,updateApplication,getApplications} from '../actions/application_actions'
 import TAProfile from './TAProfile';
 import Dashboard from './Dashboard';
+import backgroundImage from '../images/background.jpg';
 
 const Applicant = (props) => {
     const history=useNavigate()
@@ -45,8 +46,7 @@ const Applicant = (props) => {
         openModal(true)
     }
     return (
-        <div>
-            <div class="background-image"></div>
+        <div style={{ backgroundImage: `url(${backgroundImage})`, backgroundSize: 'cover', minHeight: '100vh' }}>
             <header className='header'>
                 <h1>Owl Assistants</h1>   
                 <h3>TA Applicant</h3>  

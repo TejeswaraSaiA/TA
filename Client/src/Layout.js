@@ -3,16 +3,17 @@ import {Button} from 'semantic-ui-react'
 import Login from './Register_User/Login'
 import Register from './Register_User/Register'
 import './App.css'
+import backgroundImage from './images/background.jpg';
 
 const Layout=()=>{
     const [isLogin,setIsLogin]=useState(true)
     return(
-            <div>
+            <div  style={{ backgroundImage: `url(${backgroundImage})`, backgroundSize: 'cover', minHeight: '100vh' }}>
             <header class="header">
                 <h1>Owl Assistants</h1>
             </header>
             <div class="main-container">
-                <div class="background-image"></div>
+                {/* <div class="background-image"></div> */}
                 <div class="container">
                     <h1 style={{fontWeight:'bolder', color:'white'}}>Welcome to Owl Assistants TA Applicant Page</h1>
                     <p class="lead" style={{color:'white'}} >Manage your Account in a Single Go!</p>
