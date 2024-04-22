@@ -88,7 +88,7 @@ console.log("current user",currentUser)
     formData.append("resume", state.resume);  // Make sure state.resume is a File object
 
     const response = await dispatch(createApplication(formData));
-      toast.success('applied Succefully');
+      toast.success('Applied Succefully');
       props.onClose();
     }
     catch(e){

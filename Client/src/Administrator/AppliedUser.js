@@ -68,8 +68,8 @@ const AppliedUser = (props) => {
     }
       
   const submitHandler=()=>{
-toast.success("selected Suvvess fullly")
-props.onClose();
+    toast.success("selected Successfully")
+    props.onClose();
   }
   const closeModalHandler=()=>{
     setViewUser(false) 

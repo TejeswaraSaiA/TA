@@ -54,8 +54,8 @@ const AppliedUser = (props) => {
     // }
       
   const submitHandler=()=>{
-toast.success("selected Suvvess fullly")
-props.onClose();
+    toast.success("Selected Successfully")
+    props.onClose();
   }
 
   const checkBoxClickHandler=(data)=>{

@@ -11,7 +11,7 @@ const [message,setMessage]=useState("")
 const dispatch = useDispatch();
 const clickHandler=()=>{
     dispatch(setMessages({message:message}))
-    toast.success("Feed back submitted Successfuly")
+    toast.success("Feedback submitted Successfuly")
     props.onClose()
 }
   return (
