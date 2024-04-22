@@ -19,9 +19,7 @@ const storage = multer.diskStorage({
 });
 const upload = multer({ storage: storage });
 router.post("/new_application",upload.single('resume'), async(req, res) => {
-    // console.log("reqqqq",req.file)
     const fileName = req.file.filename;
-    // console.log("my name",fileName)
     const {course_name,course_id,gpa,previous_experience,applicant_id,department,professor_name,applicant_name}=req.body
     const application = req.body;
     application.resume= req.file.filename;

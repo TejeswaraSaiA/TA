@@ -12,21 +12,6 @@ const AddJob = (props) => {
   });
   const dispatch = useDispatch()
 
-
-//   const handleSubmit = () => {
-//     // Handle form submission here
-//     console.log();
-//     axios.post("/api/courses/new_course",course)
-//     .then(()=>{
-//         toast.success("Successfully added new course")
-//         props.onClose();
-//     })
-//     .catch((e)=>{
-//         toast.error("Unable to submit form")
-//         props.onClose();
-//     })
-//   };
-
   const submitHandler = () => {
     
     try{
