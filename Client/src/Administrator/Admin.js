@@ -40,24 +40,17 @@ const AdminDashboard = () => {
         taSettledCoursesData.push(courses[i]) 
       }
       else{
-        const momentCreatedAt=moment(courses[i].createdAt,'YYYY-MM-DDTHH:mm:ss')
-        if (momentCreatedAt.isValid()) {
-          const currentDate = moment();
-          const differenceInDays = currentDate.diff(momentCreatedAt, 'days');
-          if(differenceInDays>5){
-            deadlinePassedData.push(courses[i]) 
-          }
-          else{
-            activeJobsData.push(courses[i])
-          }
-        } else {
-          console.error('Invalid date format');
+        if(courses[i].applicants.length != 0) {
+          deadlinePassedData.push(courses[i])
+        }
+        else {
+          activeJobsData.push(courses[i])
         }
       }
     }
   }
 
-  console.log("all Jobs",activeJobsData,deadlinePassedData,taSettledCoursesData)
+  console.log("All Jobs",activeJobsData,deadlinePassedData,taSettledCoursesData)
   
   
  const activeJobsColumns=[
@@ -76,7 +69,11 @@ const AdminDashboard = () => {
     { Header: 'Professor', accessor: 'professor_name' },
     {Header:'Actions',Cell: ({ row }) => (
       <div>
-        <button className='cancel-button' onClick={()=>{onOpenTaApplicants(row.original)}}>open</button>
+        <button className='cancel-button' 
+          onClick={()=>{console.log(row)
+            onOpenTaApplicants(row.original)}}>
+              Open TA
+        </button>
       </div>
     ),
   }
@@ -89,7 +86,7 @@ const AdminDashboard = () => {
     { Header: 'SNO', accessor: '_id' },
     { Header: 'Course Name', accessor: 'course_name' },
     { Header: 'Department', accessor: 'department' },
-    { Header: 'Professor', accessor: 'professor' },
+    { Header: 'Professor', accessor: 'professor_name' },
     // Add more columns as needed
   ];
 
@@ -125,7 +122,6 @@ const AdminDashboard = () => {
     setAppliedUser(true);
     setOpendCourse(data)
   }
-console.log(openAddNewJob)
   return (
     <div>
       {/* Top Header */}

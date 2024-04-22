@@ -17,7 +17,7 @@ const AddUsers = (props) => {
   const [name,setName]=useState("");
   const [password,setPassword]=useState("")
   const [email,setEmail]=useState("")
-  const [department,setDepartment]=useState("")
+  const [department,setDepartment]=useState("Computer Science")
 
   const [data, setData] = useState({
     userType: userType,
@@ -29,8 +29,17 @@ const AddUsers = (props) => {
     }
   })
   const submitHandler=()=>{
-    console.log(data)
-    axios.post("/api/users/register",data)
+    let myData={
+      userType: userType,
+      name: name,
+      password:password,
+      email:email,
+      department:department,
+      selected:{
+      }
+    }
+    console.log(myData)
+    axios.post("/api/users/register",myData)
     .then((res)=>{
         console.log("Applicant Registered Successfully")
         toast.success("Submitted Successfully")
@@ -144,9 +153,9 @@ let users=[
                         control={Dropdown}
                         label="User Type"
                         name="usertype"
-                        value={data.userType}
+                        value={userType}
                         options={users}
-                        onChange={(e,data)=>setData({...data, userType: data.value})}
+                        onChange={(e,data)=>setUserType(data.value)}
                         />
                 </Grid.Column>
                 <Grid.Column>
@@ -154,8 +163,8 @@ let users=[
                         control={Input}
                         label="User Name or Email"
                         name="email"
-                        value={data.email}
-                        onChange={(e)=>setData({...data,email: e.target.value})}
+                        value={email}
+                        onChange={(e)=>setEmail(e.target.value)}
                     />
                 </Grid.Column>
             </Grid.Row>
@@ -165,8 +174,8 @@ let users=[
                         control={Input}
                         label="Name"
                         name="name"
-                        value={data.name}
-                        onChange={(e)=>setData({...data, name: e.target.value})}
+                        value={name}
+                        onChange={(e)=>setName(e.target.value)}
                     />
                 </Grid.Column>
                 <Grid.Column>
@@ -174,8 +183,8 @@ let users=[
                         control={Input}
                         label="Password"
                         name="password"
-                        value={data.password}
-                        onChange={(e)=>setData({...data, password: e.target.value})}
+                        value={password}
+                        onChange={(e)=>setPassword(e.target.value)}
                         />
                 </Grid.Column>
             </Grid.Row>
@@ -185,9 +194,9 @@ let users=[
                         control={Dropdown}
                         label="Select Department"
                         name="department"
-                        value={data.department}
+                        value={department}
                         options={department_values}
-                        onChange={(e,data)=>setData({...data, department: data.value})}
+                        onChange={(e,data)=> setDepartment(data.value)}
                         />
                 </Grid.Column>
             </Grid.Row>

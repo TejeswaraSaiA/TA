@@ -10,9 +10,15 @@ const TACommittee = () => {
   const history=useNavigate()
   // Sample data for Active Jobs table
   const dispatch = useDispatch();
+  let currentUser = ''
+  const [name, setName] = useState("")
+
   useEffect(()=>{
+    currentUser=JSON.parse(localStorage.currentUser)
+    setName(currentUser.name)
     dispatch(getCourse());
   },[])
+
   const {courses}=useSelector((state)=>state.getAllCourseReducer)
   console.log("MyCourse",courses)
   const [openAppliedUser,setAppliedUser]=useState(false);
@@ -28,19 +34,11 @@ const TACommittee = () => {
         taSettledCoursesData.push(courses[i]) 
       }
       else{
-        
-        const momentCreatedAt=moment(courses[i].createdAt,'YYYY-MM-DDTHH:mm:ss')
-        if (momentCreatedAt.isValid()) {
-          const currentDate = moment();
-          const differenceInDays = currentDate.diff(momentCreatedAt, 'days');
-          if(differenceInDays>5){
-            deadlinePassedData.push(courses[i]) 
-          }
-          else{
-            activeJobsData.push(courses[i])
-          }
-        } else {
-          console.error('Invalid date format');
+        if(courses[i].applicants.length != 0) {
+          deadlinePassedData.push(courses[i])
+        }
+        else {
+          activeJobsData.push(courses[i])
         }
       }
     }
@@ -81,7 +79,7 @@ const TACommittee = () => {
       </header>
       <nav className='navigation'>
         <div className='nav-left'>
-          <button className='nav-left-button'>Welcome User</button>
+          <button className='nav-left-button'>Welcome {name}</button>
         </div>
 
         <div className='nav-right'>

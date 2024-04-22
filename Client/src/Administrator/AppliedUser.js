@@ -40,11 +40,14 @@ const AppliedUser = (props) => {
     { Header: 'Select', Cell: ({ row }) => (
         <Checkbox toggle onChange={()=>checkBoxClickHandler(row.original)} />
       ), },
+      { Header: 'Reject', Cell: ({ row }) => (
+        <Checkbox toggle onChange={()=>checkBoxClickHandler(row.original)} />
+      ), },
     {Header:'Actions',Cell: ({ row }) => {
      
       return(
         <div>
-          <button className='cancel-button' onClick={()=>onViewUserHandler(row.original)}>view Users</button>
+          <button className='cancel-button' onClick={()=>onViewUserHandler(row.original)}>View Applicant</button>
         </div>
       )
     }
@@ -68,7 +71,7 @@ const AppliedUser = (props) => {
     }
       
   const submitHandler=()=>{
-    toast.success("selected Successfully")
+    toast.success("Selected Successfully")
     props.onClose();
   }
   const closeModalHandler=()=>{
@@ -76,9 +79,12 @@ const AppliedUser = (props) => {
   }
 
   const checkBoxClickHandler=(data)=>{
-    dispatch(updateApplication(data,false))
+    console.log(data)
+    const newData = { ...data, short_listed: true };
+
+    dispatch(updateApplication(newData, false))
   }
-  // console.log("courseAppliedUsersss",appliedUsers) 
+
   return (
     <Modal open={props.isOpend} className="right-aligned-modal">
         {onViewUser && <UserProfile onClose={closeModalHandler} isOpend={onViewUser} viewedUser={viewedUser}/>}
@@ -92,7 +98,7 @@ const AppliedUser = (props) => {
         />
       </Modal.Header>
       <Modal.Content style={{padding:30,height:'calc(700px)'}} className='modal-container'>
-        <h2>Deadline Passed Jobs</h2>
+        <h2>TA Applications</h2>
         <DataTable columns={appliedUsersColumns} data={courseAppliedUsers } />
       </Modal.Content>
       <Modal.Actions style={{display:'flex',padding:"17px 30px"}}>

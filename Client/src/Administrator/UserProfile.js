@@ -93,10 +93,13 @@ const UserProfile = (props) => {
                 <Form.Field
                   control={Button}
                   type="file"
-                  label="viewResume"
+                  label="View Resume"
+                  value="Open Resume"
                   onClick={()=>{window.open(`http://localhost:4000/files/${props.viewedUser.resume}`, "_blank", "noreferrer")}}
                   readOnly
-                />
+                >
+                  Open Resume
+                </Form.Field>
               </Grid.Column>
             </Grid.Row>
           </Grid>

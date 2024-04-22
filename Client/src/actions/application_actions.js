@@ -27,6 +27,8 @@ export const updateApplication = (user,comm) => async(dispatch) => {
     });
 
     try {
+        console.log("User Parameter",user)
+        console.log("Comm Parameter",comm)
         const response = await axios.post("/api/applications/applicant_update",user,{params:{comm:comm ? true : false}});
         // const response2 = await axios.get('/api/books/allBook');
 

@@ -6,9 +6,6 @@ const Applicant = require("../modal/studentModal")
 const Course= require("../modal/courseModal")
 
 router.post("/register", async(req, res) => {
-
-
-    
     const student = req.body;
 
   // Create a new User instance with the extracted data
@@ -28,7 +25,6 @@ router.post("/register", async(req, res) => {
 });
 
 router.post("/signin", (req, res) => {
-
 
     const { id, password,userType } = req.body;
     console.log("my req bodayy",req.body)

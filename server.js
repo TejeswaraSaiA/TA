@@ -16,11 +16,6 @@ mongoose.connect("mongodb+srv://owlassistants:Password*123@owlassistants.ud0bghk
 mongoose.connection.on("connected", () => {
     console.log("mongodb is connected");
 });
-//mong username
-//sreehari
-//passowrd
-//FzQmPIo3tMlNtNOS
-//mongodb+srv://sreehari:bdcgBHyjdPVuz58S@cluster0.0ihbv.mongodb.net/LMS?retryWrites=true&w=majority
 
 const app = express();
 app.use(express.json())
@@ -51,7 +46,6 @@ const server = app.listen(port, () => {
 })
 
 app.use((req, res, next) => {
-    // Error goes via `next()` method
     setImmediate(() => {
         next(new Error('Something went wrong'));
     });

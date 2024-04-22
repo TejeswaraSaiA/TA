@@ -1,9 +1,8 @@
 import React, { useState } from 'react';
-import { Form, Checkbox, Input, Button, Modal, Icon, Grid,Dropdown } from 'semantic-ui-react';
+import { Form, Input, Button, Modal, Grid,Dropdown } from 'semantic-ui-react';
 import { toast } from 'react-toastify';
-import axios from 'axios';
-import { useDispatch, useSelector } from 'react-redux'
-import {regi,getCourse, registerCourse} from '../actions/course_action'
+import { useDispatch } from 'react-redux'
+import {getCourse, registerCourse} from '../actions/course_action'
 const AddJob = (props) => {
   const [course, setCourse] = useState({
     course_name:"",
@@ -105,7 +104,18 @@ const AddJob = (props) => {
                   onChange={(e)=>setCourse({...course,professor_name: e.target.value})}
                 />
               </Grid.Column>
-              <Dropdown options={department_values} value={course.department} placeholder={"select department"} selection onChange={(e,data)=>setCourse({...course,department: data.value})}/>
+              <Grid.Column>
+                    <Form.Field 
+                        control={Dropdown}
+                        label="Select Department"
+                        placeholder={"Select Department"}
+                        name="department"
+                        value={course.department}
+                        options={department_values}
+                        onChange={(e,data)=>setCourse({...course,department: data.value})}
+                        // onChange={(e,data)=> setDepartment(data.value)}
+                        />
+                </Grid.Column>
             </Grid.Row>
           </Grid>
         </Form>
