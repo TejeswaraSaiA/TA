@@ -45,7 +45,7 @@ const UserProfile = (props) => {
           style={{ cursor: 'pointer' }}
         />
       </Modal.Header>
-      <Modal.Content style={{padding:30,height:'calc(700px)'}} className='modal-container'>
+      <Modal.Content style={{padding:30,height:'-webkit-fit-content'}} className='modal-container'>
         <Form onSubmit={handleSubmit}>
           <Grid columns={3} stackable style={{margin:0}}>
             <Grid.Row>
@@ -83,7 +83,7 @@ const UserProfile = (props) => {
               <Grid.Column>
                 <Form.Field
                   control={Input}
-                  label="Gpa"
+                  label="GPA"
                   name="gpa"
                   value={props.viewedUser.gpa}
                   readOnly

@@ -428,3 +428,22 @@ body {
   overflow: scroll;
   overflow-x: hidden;
 }
+
+.square-modal {
+  max-width: 600px;
+  margin: 0 auto;
+  border-radius: 10px; /* Rounded corners */
+}
+
+.square-modal .modal-content {
+  padding: 20px; /* Add padding */
+}
+
+.square-modal .input, .square-modal {
+  text-align: center; /* Center align input and list */
+  margin-left: 30%;
+}
+
+.square-modal .list {
+  margin-top: 20px; /* Add margin to list */
+}

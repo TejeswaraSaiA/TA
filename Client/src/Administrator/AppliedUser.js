@@ -54,17 +54,6 @@ const AppliedUser = (props) => {
       
     }
     ]
-    // let appliedUsers = []
-    // if(applications && applications.length>0){
-    //   for(let i=0;i<applications.length;i++){
-    //     if(applications[i].course_id===props.opendCourse._id){
-    //       appliedUsers.push(applications[i])
-    //       console.log("insidee here")
-    //     }
-    //   }
-    //   // props.opendCourse
-    //   // appliedUsers=
-    // }
     const onViewUserHandler=(data)=>{
       setViewUserData(data)
         setViewUser(true)
@@ -97,7 +86,7 @@ const AppliedUser = (props) => {
           style={{ cursor: 'pointer' }}
         />
       </Modal.Header>
-      <Modal.Content style={{padding:30,height:'calc(700px)'}} className='modal-container'>
+      <Modal.Content style={{padding:30,height:'-webkit-fit-content'}} className='modal-container'>
         <h2>TA Applications</h2>
         <DataTable columns={appliedUsersColumns} data={courseAppliedUsers } />
       </Modal.Content>
@@ -109,7 +98,7 @@ const AppliedUser = (props) => {
             <Button onClick={submitHandler} className='red_button' style={{marginLeft:"auto"}}>Update</Button>
        
       </Modal.Actions>
-      
+
     </Modal>
   );
 };
