@@ -17,12 +17,10 @@ const clickHandler=()=>{
   return (
     <Modal
       open={props.open}
-      Send Feedback
-      
     >
-      <Header icon='=submit' content='Submit Feedback' />
-      <Modal.Content>
-        <Input onChange={(e)=>setMessage(e.target.value)}/>
+      <Header icon='comment' content='Submit Feedback' />
+      <Modal.Content className='test'>
+        <Input className='test222' onChange={(e)=>setMessage(e.target.value)}/>
       </Modal.Content>
       <Modal.Actions>
         <Button color='red' onClick={() => props.onClose()}>
