@@ -34,7 +34,7 @@ const TACommittee = () => {
         taSettledCoursesData.push(courses[i]) 
       }
       else{
-        if(courses[i].applicants.length != 0 && courses[i].admin_selected) {
+        if(courses[i].applicants.length != 0) {
           deadlinePassedData.push(courses[i])
         }
         else {
