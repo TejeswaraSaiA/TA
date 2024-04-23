@@ -19,7 +19,7 @@ const AppliedUser = (props) => {
     let appliedUsers = []
     if(applications && applications.length>0){
       for(let i=0;i<applications.length;i++){
-        if(applications[i].course_id===props.opendCourse._id && applications[i].short_listed===true){
+        if(applications[i].course_id===props.opendCourse._id && applications[i].admin_selected===true){
           appliedUsers.push(applications[i])
         }
       }
@@ -59,7 +59,9 @@ const AppliedUser = (props) => {
   }
 
   const checkBoxClickHandler=(data)=>{
-    dispatch(updateApplication(data,true))
+    const newData = { ...data, committee_selected:true,short_listed: true };
+    // dispatch(updateApplication(data,true))
+    dispatch(updateApplication(newData, false))
   }
   // console.log("courseAppliedUsersss",appliedUsers) 
   return (

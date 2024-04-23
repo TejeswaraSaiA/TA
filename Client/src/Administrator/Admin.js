@@ -40,7 +40,7 @@ const AdminDashboard = () => {
         taSettledCoursesData.push(courses[i]) 
       }
       else{
-        if(courses[i].applicants.length != 0) {
+        if(courses[i].applicants.length != 0 && !courses[i].admin_selected) {
           deadlinePassedData.push(courses[i])
         }
         else {
