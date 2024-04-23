@@ -1,16 +1,19 @@
-import React, { useState } from 'react';
+import React, { useState,useEffect } from 'react';
 import { Button, Input, Header, List, Modal, Icon } from 'semantic-ui-react';
-import { useDispatch } from 'react-redux';
+import {getCourse,updateCourse} from '../actions/course_action'
 import { setMessages } from '../actions/instructor_actions';
 import { toast } from 'react-toastify';
+import { useNavigate } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
+import { getApplications } from '../actions/application_actions';
 // import './InstructorTask.css'; // Import custom CSS file
 
 const InstructorTask = (props) => {
+    const dispatch = useDispatch();
     const [todos, setTodos] = useState([]);
     const [todoInput, setTodoInput] = useState('');
     const [message, setMessage] = useState('');
-    const dispatch = useDispatch();
-
+console.log("dhfh",props.data)
     const handleInputChange = (e) => {
         setTodoInput(e.target.value);
     };
@@ -30,6 +33,8 @@ const InstructorTask = (props) => {
     const handleAssignTasks = () => {
         if (todos.length > 0) { // Check if todos array is not empty
             dispatch(setMessages({ message: message }));
+
+            dispatch(updateCourse({course_id:props.data[0].course_id,todos:todos}))
             toast.success('Tasks were assigned successfully');
             console.log(todos)
             props.onClose();

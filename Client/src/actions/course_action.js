@@ -21,6 +21,26 @@ export const registerCourse = (book) => async(dispatch) => {
     }
 };
 
+export const updateCourse = (book) => async(dispatch) => {
+    dispatch({
+        type: "GET_COURSE_REQUEST",
+    });
+
+    try {
+        const response = await axios.post("/api/courses/update_course", book);
+        // const response2 = await axios.get('/api/books/allBook');
+
+        dispatch({
+            type: "GET_COURSE_REQUEST_SUCCESS",
+            payload: response.data,
+        });
+    } catch (error) {
+        dispatch({
+            type: "GET_COURSE_REQUEST_FAILED",
+            payload: error,
+        });
+    }
+};
 export const getCourse = ()=>async(dispatch) => {
     dispatch({
         type: "GET_COURSE_REQUEST"
