@@ -69,7 +69,7 @@ const AppliedUser = (props) => {
 
   const checkBoxClickHandler=(data)=>{
     console.log(data)
-    const newData = { ...data, short_listed: true };
+    const newData = { ...data, admin_selected:true,short_listed: false };
 
     dispatch(updateApplication(newData, false))
   }

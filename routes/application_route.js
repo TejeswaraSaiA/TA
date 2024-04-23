@@ -19,10 +19,10 @@ const storage = multer.diskStorage({
 });
 const upload = multer({ storage: storage });
 router.post("/new_application",upload.single('resume'), async(req, res) => {
-    const fileName = req.file.filename;
+    const fileName = req.file && req.file.filename;
     const {course_name,course_id,gpa,previous_experience,applicant_id,department,professor_name,applicant_name}=req.body
     const application = req.body;
-    application.resume= req.file.filename;
+    application.resume= req.file && req.file.filename;
     application.previous_experience=JSON.parse(previous_experience)
     console.log("data",application)
 
@@ -52,23 +52,29 @@ router.post("/applicant_update",async(req,res)=>{
     const {course_name,course_id,gpa,previous_experience,applicant_id,department,professor_name,applicant_name,short_listed,admin_selected,committee_selected,offer_accepted}=req.body
     let myData=req.body;
     //myData.short_listed=true
-    // console.log("Srrrrrrrr",req.query.comm)
-    if(!req.query.comm){
-      myData.short_listed=true
-    }
-    else{
       myData.offer_accepted=true
       const applicant=await Applicant.findOne({_id:applicant_id})
       applicant.selected=true
       const course=await Course.findOne({_id:course_id})
-      course.ta_selected=true
+      console.log("admin selected",admin_selected,committee_selected)
+      
+      if(committee_selected){
+        course.ta_selected=true
+        myData.short_listed=true
+        myData.ta_selected=true
+        console.log("mydataaa",myData)
+      }
+
       course.ta_name=applicant_id
       console.log("ta name",course.ta_name)
       await course.save()
       await applicant.save()
-    }
+      console.log("myDataaa",myData);
     await Application.updateOne({ _id: req.body._id }, {...myData})
-        .then((data) => res.json(data))
+        .then((data) => {
+          console.log("daaaa",data)
+          res.json(data)}
+        )
         .catch((e) => res.status(400).json({ error: e.message }));
 
 })
