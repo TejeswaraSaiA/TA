@@ -66,7 +66,7 @@ const Instructor = (props) => {
             </header>
             <nav className='navigation'>
                 <div className='nav-left'>
-                    <button className='nav-left-button'>Welcome {name}</button>
+                    <button className='nav-left-button'>Welcome {name}!</button>
                 </div>
                 <div className='nav-right'>
                     <button className='nav-right-button'>Notifications</button>
