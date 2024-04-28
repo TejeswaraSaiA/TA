@@ -1,9 +1,12 @@
 const mongoose = require("mongoose");
-
+const todoSchema = new mongoose.Schema({
+    tasks:[]
+})
 const courseSchema = new mongoose.Schema({
     course_name: {
         type: String,
     },
+    todos:[],
     description:{
         type:String,
     },

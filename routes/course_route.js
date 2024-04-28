@@ -39,4 +39,13 @@ router.get("/get_courses", async(req, res) => {
   
 });
 
+router.post('/update_course',async(req,res)=>{
+  const {course_id,todos}=req.body;
+  let course=await Course.findById({_id:course_id})
+  console.log("courses",todos)
+  course.todos=todos
+  await course.save();
+  
+})
+
 module.exports = router;

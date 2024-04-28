@@ -39,6 +39,7 @@ const Instructor = (props) => {
                     courseName: app.course_name,
                     department: app.department,
                     description: app.description,
+                    course_id:app.course_id,
                     gpa: app.gpa
                 };
                 setFilteredApplications(...filteredApplications,filteredData)
@@ -75,7 +76,7 @@ const Instructor = (props) => {
             </nav>
             <div style={{ padding: "30px 30px 30px 0px", marginTop: 60 }}>
                 {isOpenModal && <InstructorMessage open={isOpenModal} onClose={() => setOpenModal(false)} />}
-                {isOpenTaskModal && <InstructorTask open={isOpenTaskModal} onClose={() => setOpenTaskModal(false)} />}
+                {isOpenTaskModal && <InstructorTask open={isOpenTaskModal} data={filteredApplications} onClose={() => setOpenTaskModal(false)} />}
                 <Grid style={{ margin: 0 }}>
                     <Grid.Row columns={3} style={{ padding: 0 }}>
                         {filteredApplications.map((val, idx) => (
